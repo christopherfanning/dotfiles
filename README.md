@@ -8,13 +8,13 @@ Conveniently places Zsh, Vim configs in one place
 
 ## Zsh
 
-Antidote - Package management
+- Antidote - Package management
 
 ### Plugins
-Powerlevel10k
-Vim mode
-Syntax highlighting
-Add kubernetes plugin
+- Powerlevel10k
+- Vim mode
+- Syntax highlighting
+- Add kubernetes plugin
 
 
 ## neovim
@@ -22,13 +22,13 @@ Add kubernetes plugin
 Packer - for package management
 
 ### Plugins
-Telescope
-Harpoon
-nerdTree
-treesitter 
+- Telescope
+- Harpoon
+- nerdTree
+- treesitter 
 
 ### Other 
-key bindings
+- key bindings
 
 
 
