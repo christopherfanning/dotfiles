@@ -1,47 +1,47 @@
-** Cfan dotfiles
+## Cfan dotfiles
 
 TODO put links to the projects we're using here
 
 
-* Features / What's here
+# Features / What's here
 Conveniently places Zsh, Vim configs in one place 
 
-** Zsh
+## Zsh
 ------
 Antidote - Package management
 
-*** Plugins
+### Plugins
 Powerlevel10k
 Vim mode
 Syntax highlighting
 Add kubernetes plugin
 
 
-** neovim
+## neovim
 --------
 Packer - for package management
 
-*** Plugins
+### Plugins
 Telescope
 Harpoon
 nerdTree
 treesitter 
 
-*** Other 
+### Other 
 key bindings
 
 
 
-* Installing
+# Installing
 
-** Dependencies
+## Dependencies
 ---------------
 
-** Script install
+## Script install
 makes backup of files before it links to files in ~/dotfiles/src
 bin/install.dotfiles.sh
 
-** Manual install 
+## Manual install 
 ```bash
 ln -s ~/dotfiles/src/zshrc ~/.zshrc
 ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt 
