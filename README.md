@@ -1,6 +1,7 @@
 ## Cfan dotfiles
 
 TODO put links to the projects we're using here
+TODO add screen or byobu or tmux config
 
 
 # Features / What's here
@@ -46,4 +47,5 @@ ln -s ~/dotfiles/src/zshrc ~/.zshrc
 ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt 
 
 ```
+
 

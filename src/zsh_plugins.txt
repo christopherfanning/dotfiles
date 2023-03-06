@@ -38,3 +38,6 @@ jeffreytse/zsh-vi-mode
 
 
 romkatv/powerlevel10k
+
+jonmosco/kube-ps1
+
