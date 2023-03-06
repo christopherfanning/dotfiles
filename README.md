@@ -5,7 +5,17 @@ TODO add screen or byobu or tmux config
 
 
 # Features / What's here
-Conveniently places Zsh, Vim configs in one place 
+- Conveniently places Zsh, Vim configs in one place 
+
+# Use Case for this config
+  - Readablility ( syntax highlighting )
+  - Automation ( pulling and displaying data that would otherwise need to be queried )
+    - autocompletion of command syntax
+    - aliases 
+    - pull common data ahead of time  
+      - ( git, k8s, battery life, timezone, etc ) 
+  - Features 
+    - display images in terminal
 
 ## Zsh
 
@@ -23,13 +33,13 @@ Conveniently places Zsh, Vim configs in one place
 Packer - for package management
 
 ### Plugins
-- Telescope
-- Harpoon
-- nerdTree
-- treesitter 
+  - Telescope
+  - Harpoon
+  - nerdTree
+  - treesitter 
 
 ### Other 
-- key bindings
+  - key bindings
 
 
 
@@ -38,10 +48,14 @@ Packer - for package management
 ## Dependencies
 
 ## Script install
-makes backup of files before it links to files in ~/dotfiles/src
-bin/install.dotfiles.sh
+  - makes backup of files before it links to files in ~/dotfiles/src
+
+  ```bash
+  bin/install.dotfiles.sh
+  ```
 
 ## Manual install 
+
 ```bash
 ln -s ~/dotfiles/src/zshrc ~/.zshrc
 ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt 
