@@ -7,7 +7,7 @@ TODO put links to the projects we're using here
 Conveniently places Zsh, Vim configs in one place 
 
 ## Zsh
-------
+
 Antidote - Package management
 
 ### Plugins
@@ -18,7 +18,7 @@ Add kubernetes plugin
 
 
 ## neovim
---------
+
 Packer - for package management
 
 ### Plugins
@@ -35,7 +35,6 @@ key bindings
 # Installing
 
 ## Dependencies
----------------
 
 ## Script install
 makes backup of files before it links to files in ~/dotfiles/src
