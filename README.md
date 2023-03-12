@@ -47,28 +47,46 @@ Packer - for package management
 
 ## Dependencies
   - cargo install tree-sitter-cli
+  - install Packer
+  - install rust
   - TODO install zsh
   - TODO install antidote
-  - TODO install Packer
   - TODO install tmux
   - TODO install tpm
   - TODO install nvim
-  - TODO install ranger
   - TODO install netcat
   - TODO install curl
   - TODO install htop
   - TODO install nmap
-  - TODO install rust
   - TODO install az cli
   - TODO install k8s plugin
   - TODO install k9s
   - TODO install kubectx
+  - TODO install kitty
 
   ```bash
+  # Install Packer
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+ # Install Rust
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  
   cargo install tree-sitter-cli
   ```
 
+## Other tools 
+  - Ranger
+  - k9s
+  - az cli
+  - htop
+  - bpytop
+
+  ```bash
+  # Install all the things
+  sudo apt install ranger netcat tmux curl wget git nmap curl neovim htop 
+
+  ```
+   
 
 ## Script install
   - makes backup of files before it links to files in ~/dotfiles/src
