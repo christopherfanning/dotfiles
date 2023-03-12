@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- use 'nvim-treesitter/nvim-treesitter'
   use 'sheerun/vim-polyglot'
 
 
@@ -15,22 +14,16 @@ return require('packer').startup(function(use)
       "nvim-treesitter/nvim-treesitter",
       run = ':TSUpdate',
       config = function() require('nvim-treesitter.configs').setup({
-        ensure_installed = { "lua", "java"},
+        ensure_installed = { "lua", "java", "markdown", "rust", "kotlin", "dockerfile", "gitignore", "html", "javascript", "jq", "json", "org", "regex", "yaml", "typescript"},
         sync_install = true,
         auto_install = true,
       }) end,
     }
-  -- Load on a combination of conditions: specific filetypes or commands
-  -- Also run code after load (see the "config" key)
---  use {
---    'w0rp/ale',
---    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
---    cmd = 'ALEEnable',
---    config = 'vim.cmd[[ALEEnable]]'
---  }
 
-  -- Post-install/update hook with neovim command
---  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+         'nvim-telescope/telescope.nvim', tag = '0.1.1',
+         requires = { {'nvim-lua/plenary.nvim'} }
+        }
 
   -- You can specify multiple plugins in a single call
 --   use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}

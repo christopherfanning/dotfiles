@@ -80,6 +80,7 @@ _G.packer_plugins = {
     url = "https://github.com/dracula/vim"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\2ê\1\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\21ensure_installed\1\0\2\17sync_install\2\17auto_install\2\1\16\0\0\blua\tjava\rmarkdown\trust\vkotlin\15dockerfile\14gitignore\thtml\15javascript\ajq\tjson\borg\nregex\tyaml\15typescript\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -89,6 +90,16 @@ _G.packer_plugins = {
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/chris/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/chris/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/vim-polyglot",
@@ -97,6 +108,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\2ê\1\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\21ensure_installed\1\0\2\17sync_install\2\17auto_install\2\1\16\0\0\blua\tjava\rmarkdown\trust\vkotlin\15dockerfile\14gitignore\thtml\15javascript\ajq\tjson\borg\nregex\tyaml\15typescript\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
