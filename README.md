@@ -46,6 +46,24 @@ Packer - for package management
 # Installing
 
 ## Dependencies
+  - cargo install tree-sitter-cli
+  - TODO install zsh
+  - TODO install antidote
+  - TODO install Packer
+  - TODO install tmux
+  - TODO install tpm
+  - TODO install nvim
+  - TODO install ranger
+  - TODO install netcat
+  - TODO install curl
+  - TODO install htop
+  - TODO install nmap
+  - TODO install rust
+  ```bash
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  cargo install tree-sitter-cli
+  ```
+
 
 ## Script install
   - makes backup of files before it links to files in ~/dotfiles/src
