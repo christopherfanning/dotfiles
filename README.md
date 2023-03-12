@@ -30,6 +30,11 @@ TODO add screen or byobu or tmux config
 
 ## neovim
 
+```bash
+sudo add-apt-repository ppa:neovim-ppa/stable
+
+```
+
 Packer - for package management
 
 ### Plugins
