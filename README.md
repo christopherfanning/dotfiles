@@ -59,6 +59,11 @@ Packer - for package management
   - TODO install htop
   - TODO install nmap
   - TODO install rust
+  - TODO install az cli
+  - TODO install k8s plugin
+  - TODO install k9s
+  - TODO install kubectx
+
   ```bash
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install tree-sitter-cli
