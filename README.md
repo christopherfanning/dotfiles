@@ -68,6 +68,7 @@ Packer - for package management
   - TODO install k9s
   - TODO install kubectx
   - TODO install kitty
+  - TODO install nvm
 
   ```bash
   # Install Packer
@@ -89,6 +90,15 @@ Packer - for package management
   ```bash
   # Install all the things
   sudo apt install ranger netcat tmux curl wget git nmap curl neovim htop 
+
+  # Install nvm 
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+  # Install kubectl
+
+  
+  # Install k9s
+
 
   ```
    
