@@ -17,3 +17,15 @@
 
 ** Other ideas
   - add installation for other tools depending on the os
+
+
+*** Ideas
+  - note taking application setup.
+    - vim keybindings
+    - Image support
+    - highlight areas
+    - html?
+    - markdown?
+    - multi-files
+    - ^ which makes it easily shareable
+    
