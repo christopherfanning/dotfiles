@@ -40,6 +40,7 @@ WORDCHARS=${WORDCHARS//[\/]}
 alias vim=nvim
 alias bat=batcat
 alias zrc='vim ~/.zshrc'
+alias i='idea . &'
 
 
 zstyle ':completion:*' file-list all
@@ -100,5 +101,5 @@ export NVM_DIR="$HOME/.nvm"
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH:~/bin"
 
