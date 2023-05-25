@@ -1,1 +1,3 @@
 src/nvim/plugin*
+
+src/nvim/plugin/packer_compiled.lua
