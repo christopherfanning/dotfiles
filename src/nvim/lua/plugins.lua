@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
       "nvim-treesitter/nvim-treesitter",
       run = ':TSUpdate',
       config = function() require('nvim-treesitter.configs').setup({
-        ensure_installed = { "lua", "java", "markdown", "rust", "kotlin", "dockerfile", "gitignore", "html", "javascript", "jq", "json", "org", "regex", "yaml", "typescript"},
+        ensure_installed = { "lua", "java", "python", "markdown", "rust", "kotlin", "dockerfile", "gitignore", "html", "javascript", "jq", "json", "org", "regex", "yaml", "typescript"},
         sync_install = true,
         auto_install = true,
       }) end,

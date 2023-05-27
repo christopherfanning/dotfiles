@@ -53,6 +53,7 @@ Packer - for package management
 ## Dependencies
   - cargo install tree-sitter-cli
   - install Packer
+  - install emacs
   - install rust
   - TODO install zsh
   - TODO install antidote
@@ -86,6 +87,7 @@ Packer - for package management
   - az cli
   - htop
   - bpytop
+  - emacs
 
   ```bash
   # Install all the things
