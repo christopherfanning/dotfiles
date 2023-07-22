@@ -6,3 +6,4 @@ src/nvim/plugin/packer_compiled.lua
 .idea
 
 
+/src/tmux/plugins/
