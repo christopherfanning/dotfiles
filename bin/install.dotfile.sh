@@ -22,7 +22,7 @@ ln -s ~/dotfiles/src/tmux ~/.config/tmux
 # sudo rpm --import linux_signing_key.pub
 
 sudo zypper ref -f
-sudo zypper install gcc gpp ranger wget curl neovim neofetch openssl netcat tmux fzf bat kitty tmux htop btop emacs git dropbox kubectx zsh kio-gdrive google-chrome-stable zip nodejs
+sudo zypper install gcc gpp ranger wget curl neovim neofetch openssl netcat tmux fzf bat kitty tmux htop btop emacs git dropbox kubectx zsh kio-gdrive google-chrome-stable zip nodejs docker xbanish
 
 
 # Install Antidote
