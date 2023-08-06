@@ -9,7 +9,10 @@ mv ~/.zsh_plugins.txt ~/.zsh_plugins.txt.before.cfan.dotfiles
 
 ln -s ~/dotfiles/src/zshrc ~/.zshrc
 ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt
-ln -s ~/dotfiles/src/tmux ~/.config/tmux
+ln -s ~/dotfiles/src/tmux/tmux.conf ~/.tmux.conf
+
+# TODO 
+# ln -s ~/dotfiles/src/tmux ~/.config/tmux
 
 
 
