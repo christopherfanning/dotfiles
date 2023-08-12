@@ -42,6 +42,10 @@ alias zrc='vim ~/.zshrc'
 alias i='idea . &'
 
 alias dotfiles='cd ~/dotfiles'
+alias notes='cd ~/notes'
+alias code='cd ~/code'
+
+
 
 
 zstyle ':completion:*' file-list all
