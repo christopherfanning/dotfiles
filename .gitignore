@@ -7,3 +7,4 @@ src/nvim/plugin/packer_compiled.lua
 
 
 /src/tmux/plugins/
+fonts/.uuid
