@@ -8,6 +8,7 @@ mv ~/.zsh_plugins.txt ~/.zsh_plugins.txt.before.cfan.dotfiles
 
 
 ln -s ~/dotfiles/src/zshrc ~/.zshrc
+ln -s ~/dotfiles/src/nvim ~/.config/
 ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt
 ln -s ~/dotfiles/src/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/fonts ~/.fonts
@@ -15,6 +16,8 @@ ln -s ~/dotfiles/fonts ~/.fonts
 # TODO 
 # ln -s ~/dotfiles/src/tmux ~/.config/tmux
 # ln -s ~dotfiles/src/nvim ~/.config/nvim
+# Add kitty install ( or whatever terminal )
+#
 
 # Create directory for Jetbrains commandline tools.
 mkdir ~/.local/share/JetBrains/Toolbox/apps
@@ -47,7 +50,7 @@ sudo apt-get update
 # Docker Install
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-sudo apt install gcc gpp ranger wget curl neovim neofetch openssl netcat tmux fzf bat kitty tmux htop emacs git zsh kio-gdrive zip nodejs docker xbanish docker docker-compose tree
+sudo apt install gcc gpp ranger wget curl neofetch openssl netcat tmux fzf bat tmux htop emacs git zsh kio-gdrive zip nodejs docker xbanish docker docker-compose tree
 
 sudo apt-get install build-essential most wireshark-qt ripgrep fd-find spellcheck
 
@@ -69,7 +72,7 @@ curl -s "https://get.sdkman.io" | bash
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install nvim
+brew install neovim lazygit
 
 # Install Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -87,6 +90,15 @@ echo "  nvm install --lts"
 
 # Reload fonts
 fc-cache -f -v
+
+sudo chsh --shell $(which zsh) $USER
+
+# Git config
+git config --global core.editor "nvim"
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global color.ui auto
+
 
 
 # test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
