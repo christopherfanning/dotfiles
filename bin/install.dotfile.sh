@@ -2,16 +2,17 @@
 
 echo "installing cfan dotfiles"
 
-mv ~/.zshrc ~/.zshrc.before.cfan.dotfiles
-mv ~/.zsh_plugins.txt ~/.zsh_plugins.txt.before.cfan.dotfiles
+# mv ~/.zshrc ~/.zshrc.before.cfan.dotfiles
+# mv ~/.zsh_plugins.txt ~/.zsh_plugins.txt.before.cfan.dotfiles
 
 
 
-ln -s ~/dotfiles/src/zshrc ~/.zshrc
-ln -s ~/dotfiles/src/nvim ~/.config/
-ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt
-ln -s ~/dotfiles/src/tmux/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/fonts ~/.fonts
+# Ask about the linking
+# ln -s ~/dotfiles/src/zshrc ~/.zshrc
+# ln -s ~/dotfiles/src/nvim ~/.config/
+# ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt
+# ln -s ~/dotfiles/src/tmux/tmux.conf ~/.tmux.conf
+# ln -s ~/dotfiles/fonts ~/.fonts
 
 # TODO 
 # ln -s ~/dotfiles/src/tmux ~/.config/tmux
@@ -50,10 +51,14 @@ sudo apt-get update
 # Docker Install
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-sudo apt install gcc gpp ranger wget curl neofetch openssl netcat tmux fzf bat tmux htop emacs git zsh kio-gdrive zip nodejs docker xbanish docker docker-compose tree
+sudo apt install gcc zlib1g-dev gpp ranger highlight wget curl neofetch openssl netcat tmux fzf bat tmux htop emacs git zsh kio-gdrive zip nodejs docker xbanish docker docker-compose tree
 
 sudo apt-get install build-essential most wireshark-qt ripgrep fd-find spellcheck
 
+# Install neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt update
+sudo apt install make gcc ripgrep unzip neovim
 
 # add to bashrc
 # export PAGER=“most”
@@ -72,7 +77,7 @@ curl -s "https://get.sdkman.io" | bash
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install neovim lazygit
+brew install lazygit
 
 # Install Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim

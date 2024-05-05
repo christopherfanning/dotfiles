@@ -73,6 +73,8 @@ unset key
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/share/JetBrains/Toolbox/apps:$HOME/.local/share/JetBrains/Toolbox/scripts:$HOME/.local/bin
+export VISUAL=/usr/bin/nvim
+export EDITOR=/usr/bin/nvim
 
 
 # now, simply add these two lines in your ~/.zshrc
