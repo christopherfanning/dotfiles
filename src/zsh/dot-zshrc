@@ -1,0 +1,121 @@
+# ──────────────────────────────────────────────
+# Powerlevel10k instant prompt — MUST be first
+# ──────────────────────────────────────────────
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ──────────────────────────────────────────────
+# Antidote plugin manager
+# ──────────────────────────────────────────────
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+antidote load
+
+# ──────────────────────────────────────────────
+# History
+# ──────────────────────────────────────────────
+HISTSIZE=100000
+SAVEHIST=100000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+
+# ──────────────────────────────────────────────
+# Completion
+# ──────────────────────────────────────────────
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' file-list all
+zstyle ':completion:*' menu select
+
+# ──────────────────────────────────────────────
+# Options
+# ──────────────────────────────────────────────
+setopt extendedglob notify
+unsetopt beep
+WORDCHARS=${WORDCHARS//[\/]}
+
+# ──────────────────────────────────────────────
+# Keybindings
+# ──────────────────────────────────────────────
+bindkey -v
+
+# history-substring-search (up/down + vim j/k in normal mode)
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+
+# ──────────────────────────────────────────────
+# PATH
+# ──────────────────────────────────────────────
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/apps"
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# ──────────────────────────────────────────────
+# Aliases
+# ──────────────────────────────────────────────
+[[ -f "$HOME/.config/shell/aliases.sh" ]] && source "$HOME/.config/shell/aliases.sh"
+
+# ──────────────────────────────────────────────
+# FZF — fuzzy finder key bindings & completion
+# ──────────────────────────────────────────────
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ]   && source /usr/share/fzf/completion.zsh
+
+# ──────────────────────────────────────────────
+# Zoxide — smarter cd (replaces z/autojump)
+# ──────────────────────────────────────────────
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
+# ──────────────────────────────────────────────
+# Yazi — shell wrapper that changes cwd on exit
+# ──────────────────────────────────────────────
+function yy() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+# ──────────────────────────────────────────────
+# NVM
+# ──────────────────────────────────────────────
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ]             && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ]    && \. "$NVM_DIR/bash_completion"
+
+# ──────────────────────────────────────────────
+# Cargo (Rust)
+# ──────────────────────────────────────────────
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# ──────────────────────────────────────────────
+# Homebrew
+# ──────────────────────────────────────────────
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && \
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# ──────────────────────────────────────────────
+# Optional tool completions
+# ──────────────────────────────────────────────
+command -v kubectl &>/dev/null && source <(kubectl completion zsh)
+
+# ──────────────────────────────────────────────
+# Powerlevel10k
+# ──────────────────────────────────────────────
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ──────────────────────────────────────────────
+# SDKMan — MUST BE AT END
+# ──────────────────────────────────────────────
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+

@@ -1,0 +1,40 @@
+# ══════════════════════════════════════════════
+# Ghostty Configuration
+# ══════════════════════════════════════════════
+
+# ── Terminal Type ─────────────────────────────
+# Use xterm-256color so remote servers recognise the terminal.
+# Without this, programs like htop report "unknown terminal type" over SSH
+# because most servers don't have the ghostty terminfo entry installed.
+# See Issues/Ghostty-Remote-TERM.md in the Obsidian vault for details.
+term = xterm-256color
+
+# ── Font ──────────────────────────────────────
+font-family = MesloLGS NF
+font-size = 14
+font-thicken = true
+
+# ── Window ────────────────────────────────────
+window-decoration = false
+window-padding-x = 10
+window-padding-y = 10
+window-inherit-working-directory = true
+
+# ── Cursor ────────────────────────────────────
+cursor-style = block
+cursor-style-blink = false
+
+# ── Scrollback ────────────────────────────────
+scrollback-limit = 100000
+
+# ── Clipboard ─────────────────────────────────
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = true
+
+# ── Shell Integration ─────────────────────────
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+
+# ── Theme (Catppuccin Mocha) ──────────────────
+theme = catppuccin-mocha

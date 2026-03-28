@@ -1,10 +1,16 @@
-src/nvim/plugin*
+.idea/
 
-src/nvim/plugin/packer_compiled.lua
-
-
-.idea
-
-
+# tmux plugins (managed by TPM at runtime)
 /src/tmux/plugins/
+
+# fonts
 fonts/.uuid
+
+# nvim: lazy-lock is machine-specific, exclude it from dotfiles
+src/nvim/dot-config/nvim/lazy-lock.json
+
+# obsidian: workspace state is machine-specific
+obsidian/**/.obsidian/workspace.json
+obsidian/**/.obsidian/workspace-mobile.json
+obsidian/**/.trash/
+

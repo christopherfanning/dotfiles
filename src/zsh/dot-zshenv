@@ -1,0 +1,8 @@
+# ~/.zshenv — loaded for every zsh shell (interactive, non-interactive, login, scripts)
+# Keep this file minimal: only environment variables that must be available everywhere.
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Ensure local bin is on PATH for all contexts
+export PATH="$HOME/.local/bin:$PATH"

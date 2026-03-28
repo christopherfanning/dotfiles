@@ -51,6 +51,7 @@ Packer - for package management
 # Installing
 
 ## Dependencies
+  - install stow
   - cargo install tree-sitter-cli
   - install Packer
   - install emacs
@@ -91,7 +92,7 @@ Packer - for package management
 
   ```bash
   # Install all the things
-  sudo apt install ranger netcat tmux curl wget git nmap curl neovim htop fzf
+  sudo apt install stow ranger netcat tmux curl wget git nmap curl neovim htop fzf
 
   # Install nvm 
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -129,9 +130,8 @@ Packer - for package management
 ## Manual install 
 
 ```bash
-ln -s ~/dotfiles/src/zshrc ~/.zshrc
-ln -s ~/dotfiles/src/zsh_plugins.txt ~/.zsh_plugins.txt 
-
+cd ~/dotfiles
+stow --dotfiles -d src -t ~ zsh nvim kitty ranger ideavim tmux fonts
 ```
 
 
