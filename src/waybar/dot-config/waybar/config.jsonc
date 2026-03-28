@@ -1,0 +1,87 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+
+  "modules-left":   ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right":  [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "tray",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "󰲠", "2": "󰲢", "3": "󰲤", "4": "󰲦",
+      "5": "󰲨", "6": "󰲪", "7": "󰲬", "8": "󰲮", "9": "󰲰",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": { "*": 5 }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 60,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": " {:%H:%M}",
+    "format-alt": " {:%a %d %b %Y}"
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true,
+    "interval": 2
+  },
+
+  "memory": {
+    "format": " {used:0.1f}G",
+    "interval": 5
+  },
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged":  "󰚥 {capacity}%",
+    "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+  },
+
+  "network": {
+    "format-wifi":         " {essid} ({signalStrength}%)",
+    "format-ethernet":     "󰈀 {ifname}",
+    "format-disconnected": "󰖪 Disconnected",
+    "tooltip-format":      "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "format":        "{icon} {volume}%",
+    "format-muted":  "󰝟 Muted",
+    "format-icons":  { "default": ["󰕿","󰖀","󰕾"] },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "tray": {
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "wofi --show dmenu <<< $'Lock\nLogout\nReboot\nShutdown' | xargs -I{} bash -c 'case \"{}\" in Lock) hyprlock ;; Logout) hyprctl dispatch exit ;; Reboot) systemctl reboot ;; Shutdown) systemctl poweroff ;; esac'"
+  }
+}

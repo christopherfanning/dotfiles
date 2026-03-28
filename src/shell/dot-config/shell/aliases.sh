@@ -48,7 +48,11 @@ alias ta='tmux attach'
 alias tls='tmux ls'
 alias tn='tmux new-session -s'
 
+# ── HTTP client ───────────────────────────────
+alias http='xh'                   # xh: modern curl alternative (httpie-compatible syntax)
+
 # ── Misc ──────────────────────────────────────
 alias icat='kitten icat'          # kitty image preview
 alias idea='idea . &'             # open IntelliJ in background
 alias help='tldr'                 # tealdeer: quick command examples
+alias neofetch='fastfetch'        # neofetch is archived; fastfetch is its successor

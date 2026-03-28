@@ -56,6 +56,7 @@ export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/apps"
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.local/share/pnpm:$PATH"
 
 # ──────────────────────────────────────────────
 # Aliases
@@ -67,6 +68,17 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 # ──────────────────────────────────────────────
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ]   && source /usr/share/fzf/completion.zsh
+
+# ──────────────────────────────────────────────
+# Atuin — shell history sync (overrides Ctrl+R)
+# Must come AFTER fzf bindings to take precedence
+# ──────────────────────────────────────────────
+command -v atuin &>/dev/null && eval "$(atuin init zsh)"
+
+# ──────────────────────────────────────────────
+# Navi — interactive cheatsheet browser (Ctrl+G)
+# ──────────────────────────────────────────────
+command -v navi &>/dev/null && eval "$(navi widget zsh)"
 
 # ──────────────────────────────────────────────
 # Zoxide — smarter cd (replaces z/autojump)
@@ -91,6 +103,12 @@ function yy() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ]             && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ]    && \. "$NVM_DIR/bash_completion"
+
+# ──────────────────────────────────────────────
+# mise — polyglot version manager
+# Activates after nvm; migrate per-project with: mise use node@lts
+# ──────────────────────────────────────────────
+command -v mise &>/dev/null && eval "$(mise activate zsh)"
 
 # ──────────────────────────────────────────────
 # Cargo (Rust)

@@ -47,3 +47,6 @@ stow --dotfiles -d src -t ~ $(ls src/)
 echo ""
 echo "✓ Done. Open tmux and press prefix+I to install plugins."
 echo "  Open nvim — lazy.nvim will auto-install on first launch."
+echo ""
+echo "  Next: run bin/setup-mcp.sh to configure Claude Code MCP servers."
+echo "  (Set GITHUB_TOKEN and BRAVE_API_KEY first for full coverage)"

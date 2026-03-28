@@ -1,0 +1,48 @@
+/* Catppuccin Mocha — wofi stylesheet */
+
+window {
+  background-color: #1e1e2e;
+  border: 2px solid #b4befe;
+  border-radius: 12px;
+}
+
+#input {
+  background-color: #313244;
+  color: #cdd6f4;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 8px;
+  font-family: "MesloLGS NF";
+  font-size: 14px;
+}
+
+#input:focus { border: none; }
+
+#scroll {
+  margin: 4px;
+}
+
+#inner-box {
+  background: transparent;
+}
+
+#outer-box {
+  background: transparent;
+  padding: 6px;
+}
+
+#entry {
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #cdd6f4;
+}
+
+#entry:selected {
+  background-color: #313244;
+  color: #b4befe;
+  font-weight: bold;
+}
+
+#text { padding: 0 4px; }
+#img  { margin-right: 6px; }
