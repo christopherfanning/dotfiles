@@ -40,8 +40,9 @@ git config --global color.ui auto
 
 # ── Stow all packages ─────────────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
-stow --dotfiles -d src -t ~ \
-  shell zsh nvim tmux ghostty yazi kitty ideavim fonts
+# $(ls src/) expands to every package directory — no need to list them manually.
+# Dry run first: stow -nv --dotfiles -d src -t ~ $(ls src/)
+stow --dotfiles -d src -t ~ $(ls src/)
 
 echo ""
 echo "✓ Done. Open tmux and press prefix+I to install plugins."

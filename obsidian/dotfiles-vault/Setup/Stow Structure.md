@@ -34,11 +34,11 @@ src/
 Use `-n` (no-op) with `-v` (verbose) to preview exactly what stow *would* do before touching anything:
 
 ```bash
+# Preview everything — $(ls src/) expands to all package directories automatically
+stow -nv --dotfiles -d src -t ~ $(ls src/)
+
 # Preview a single package
 stow -nv --dotfiles -d src -t ~ <package>
-
-# Preview everything
-stow -nv --dotfiles -d src -t ~ shell zsh nvim tmux ghostty yazi kitty ideavim fonts
 ```
 
 Stow prints each symlink it would create (and any conflicts) without making changes. If it exits cleanly, run the same command without `-n`.
@@ -46,12 +46,14 @@ Stow prints each symlink it would create (and any conflicts) without making chan
 ### Apply
 
 ```bash
+# Install everything — no need to list packages individually
+stow --dotfiles -d src -t ~ $(ls src/)
+
 # Install a single package
 stow --dotfiles -d src -t ~ <package>
-
-# Install everything
-stow --dotfiles -d src -t ~ shell zsh nvim tmux ghostty yazi kitty ideavim fonts
 ```
+
+`$(ls src/)` simply expands to every directory inside `src/`. New packages you add are automatically included — nothing else to update.
 
 ### Other operations
 
