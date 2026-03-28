@@ -34,6 +34,13 @@ sudo pacman -S --noconfirm --needed neovim
 # eza=ls  bat=cat  rg=grep  fd=find  fzf=fuzzy  zoxide=cd  delta=git-diff
 # dust=du  duf=df  btm=htop  tealdeer=tldr  glow=markdown  direnv=envrc
 echo "==> Installing modern CLI tools..."
+
+# tealdeer conflicts with the 'tldr' package — remove it if present
+if pacman -Qi tldr &>/dev/null; then
+  echo "  Removing conflicting 'tldr' package..."
+  sudo pacman -Rs --noconfirm tldr
+fi
+
 sudo pacman -S --noconfirm --needed \
   eza \
   bat \

@@ -21,7 +21,11 @@ tldr --list       # list all available pages
 ## Install (Arch)
 
 ```bash
-sudo pacman -S tealdeer   # package name is tealdeer; binary is tldr
+# Remove the conflicting 'tldr' package if present
+sudo pacman -Rs tldr
+
+# Install tealdeer (binary is still called tldr)
+sudo pacman -S tealdeer
 tldr --update             # fetch pages on first run
 ```
 
