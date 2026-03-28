@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo "Installing dotfiles..."
+# Always run from the dotfiles repo root regardless of where the script is called from
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$DOTFILES_DIR"
+
+echo "Installing dotfiles from: $DOTFILES_DIR"
 
 # ── JetBrains Toolbox directories ────────────────────────────────────────
 mkdir -p ~/.local/share/JetBrains/Toolbox/apps
