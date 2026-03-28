@@ -1,16 +1,35 @@
 .idea/
 
-# tmux plugins (managed by TPM at runtime)
+# ── Editor runtime files ──────────────────────────────────────────────────
+*.log
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+.DS_Store
+
+# ── tmux plugins (managed by TPM at runtime) ─────────────────────────────
 /src/tmux/plugins/
 
-# fonts
-fonts/.uuid
+# ── fonts: installed via pacman (ttf-meslo-nerd), binaries don't belong here
+src/fonts/fonts/*.ttf
+src/fonts/fonts/*.otf
 
-# nvim: lazy-lock is machine-specific, exclude it from dotfiles
+# ── nvim: machine-specific / generated files ─────────────────────────────
 src/nvim/dot-config/nvim/lazy-lock.json
+src/nvim/dot-config/nvim/.luarc.json
+src/nvim/dot-config/nvim/doc/tags
 
-# obsidian: workspace state is machine-specific
+# ── hyprland: plugin manager state ───────────────────────────────────────
+src/hyprland/dot-config/hypr/hyprpm/
+
+# ── kitty: session state written on exit ─────────────────────────────────
+src/kitty/dot-config/kitty/last-session.conf
+
+# ── obsidian: workspace state is machine-specific ────────────────────────
 obsidian/**/.obsidian/workspace.json
 obsidian/**/.obsidian/workspace-mobile.json
 obsidian/**/.trash/
+
 
