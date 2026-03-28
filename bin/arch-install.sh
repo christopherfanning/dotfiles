@@ -36,10 +36,11 @@ sudo pacman -S --noconfirm --needed neovim
 # xh=curl  procs=ps  just=make
 echo "==> Installing modern CLI tools..."
 
-# tealdeer conflicts with the 'tldr' package — remove it if present
-if pacman -Qi tldr &>/dev/null; then
+# tealdeer conflicts with the 'tldr' AUR package — remove it if present
+# (yay installs it to the local pacman db, so pacman can remove it)
+if pacman -Qi tldr &>/dev/null 2>&1; then
   echo "  Removing conflicting 'tldr' package..."
-  sudo pacman -Rs --noconfirm tldr
+  sudo pacman -Rs --noconfirm tldr 2>/dev/null || yay -Rs --noconfirm tldr 2>/dev/null || true
 fi
 
 sudo pacman -S --noconfirm --needed \
