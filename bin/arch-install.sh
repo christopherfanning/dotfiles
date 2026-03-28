@@ -64,7 +64,11 @@ sudo pacman -S --noconfirm --needed \
   ffmpegthumbnailer \
   imagemagick \
   poppler
-# Optional: yay -S unar  (only needed for RAR files or non-UTF-8 encoded archives)
+
+# unar (The Unarchiver) — better than 7zip for extraction: handles RAR and
+# non-UTF-8 encoded filenames (old Windows zips, etc.) cleanly. AUR-only.
+# Keep 7zip for creating archives; use unar for extracting.
+yay -S --noconfirm --needed unar
 
 # ── Lazy* TUI tools ───────────────────────────────────────────────────────
 echo "==> Installing lazygit & lazydocker..."
