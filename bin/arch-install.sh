@@ -82,7 +82,7 @@ sudo pacman -S --noconfirm --needed \
 echo "==> Installing git tools..."
 sudo pacman -S --noconfirm --needed \
   lazygit \
-  gh
+  github-cli
 
 # ── Hyprland (Wayland compositor) ────────────────────────────────────────
 echo "==> Installing Hyprland + Wayland ecosystem..."
