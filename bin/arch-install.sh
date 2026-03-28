@@ -113,7 +113,6 @@ sudo pacman -S --noconfirm --needed \
   libvirt \
   virt-manager \
   dnsmasq \
-  bridge-utils \
   iptables-nft
 
 sudo systemctl enable --now libvirtd
