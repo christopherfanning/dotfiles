@@ -57,18 +57,20 @@ sudo pacman -S --noconfirm --needed \
   direnv \
   jq
 
-# ── Yazi & its preview dependencies ──────────────────────────────────────
+# ── Yazi & its preview dependencies (per yazi-rs.github.io/docs/installation) ──
 echo "==> Installing Yazi (file manager)..."
 sudo pacman -S --noconfirm --needed \
   yazi \
-  ffmpegthumbnailer \
-  imagemagick \
-  poppler
-
-# unar (The Unarchiver) — better than 7zip for extraction: handles RAR and
-# non-UTF-8 encoded filenames (old Windows zips, etc.) cleanly. AUR-only.
-# Keep 7zip for creating archives; use unar for extracting.
-yay -S --noconfirm --needed unar
+  ffmpeg \
+  7zip \
+  jq \
+  poppler \
+  fd \
+  ripgrep \
+  fzf \
+  zoxide \
+  resvg \
+  imagemagick
 
 # ── Lazy* TUI tools ───────────────────────────────────────────────────────
 echo "==> Installing lazygit & lazydocker..."
