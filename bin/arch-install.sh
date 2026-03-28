@@ -63,7 +63,6 @@ sudo pacman -S --noconfirm --needed \
   procs \
   just \
   fastfetch \
-  neofetch \
   atuin \
   bandwhich \
   navi \
