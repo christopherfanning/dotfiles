@@ -29,22 +29,61 @@ src/
 
 ## Commands
 
+### Dry run first — always a good idea
+
+Use `-n` (no-op) with `-v` (verbose) to preview exactly what stow *would* do before touching anything:
+
 ```bash
-# Install a package
+# Preview a single package
+stow -nv --dotfiles -d src -t ~ <package>
+
+# Preview everything
+stow -nv --dotfiles -d src -t ~ shell zsh nvim tmux ghostty yazi kitty ideavim fonts
+```
+
+Stow prints each symlink it would create (and any conflicts) without making changes. If it exits cleanly, run the same command without `-n`.
+
+### Apply
+
+```bash
+# Install a single package
 stow --dotfiles -d src -t ~ <package>
-
-# Remove a package
-stow -D --dotfiles -d src -t ~ <package>
-
-# Re-stow (after adding files)
-stow -R --dotfiles -d src -t ~ <package>
 
 # Install everything
 stow --dotfiles -d src -t ~ shell zsh nvim tmux ghostty yazi kitty ideavim fonts
+```
+
+### Other operations
+
+```bash
+# Remove a package (deletes symlinks, leaves source files intact)
+stow -D --dotfiles -d src -t ~ <package>
+
+# Re-stow (remove + re-add, useful after renaming files)
+stow -R --dotfiles -d src -t ~ <package>
+
+# Dry-run a removal
+stow -Dnv --dotfiles -d src -t ~ <package>
+```
+
+### Conflict resolution
+
+If stow reports a conflict (a real file already exists at the target):
+
+```bash
+# Option 1 — adopt the live file into the repo, then review the diff
+stow --adopt --dotfiles -d src -t ~ <package>
+git diff          # see what changed
+git checkout .    # restore repo version if you want it back
+
+# Option 2 — back up the conflicting file, then stow normally
+mv ~/.zshrc ~/.zshrc.bak
+stow --dotfiles -d src -t ~ zsh
 ```
 
 ## Adding a New Config
 
 1. Create `src/<tool>/`
 2. Mirror the home directory path using `dot-` for hidden files/dirs
-3. Run `stow --dotfiles -d src -t ~ <tool>`
+3. **Dry run**: `stow -nv --dotfiles -d src -t ~ <tool>`
+4. If clean: `stow --dotfiles -d src -t ~ <tool>`
