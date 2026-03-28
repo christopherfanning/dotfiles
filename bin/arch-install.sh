@@ -62,9 +62,11 @@ echo "==> Installing Yazi (file manager)..."
 sudo pacman -S --noconfirm --needed \
   yazi \
   ffmpegthumbnailer \
-  unar \
   imagemagick \
   poppler
+
+# unar is AUR-only on Arch
+yay -S --noconfirm --needed unar
 
 # ── Lazy* TUI tools ───────────────────────────────────────────────────────
 echo "==> Installing lazygit & lazydocker..."
