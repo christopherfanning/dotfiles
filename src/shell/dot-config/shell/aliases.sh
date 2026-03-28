@@ -51,3 +51,4 @@ alias tn='tmux new-session -s'
 # ── Misc ──────────────────────────────────────
 alias icat='kitten icat'          # kitty image preview
 alias idea='idea . &'             # open IntelliJ in background
+alias help='tldr'                 # tealdeer: quick command examples
