@@ -44,9 +44,22 @@ git config --global color.ui auto
 
 # ── Stow all packages ─────────────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
-# $(ls src/) expands to every package directory — no need to list them manually.
-# Dry run first: stow -nv --dotfiles -d src -t ~ $(ls src/)
+# Dry run first to detect conflicts
+CONFLICTS=$(stow -nv --dotfiles -d src -t ~ $(ls src/) 2>&1 | grep "cannot stow" | grep -oP '(?<=target )\S+')
+
+if [[ -n "$CONFLICTS" ]]; then
+  echo "  Backing up conflicting files..."
+  for f in $CONFLICTS; do
+    target="$HOME/$f"
+    if [[ -f "$target" && ! -L "$target" ]]; then
+      echo "    $target → ${target}.bak"
+      mv "$target" "${target}.bak"
+    fi
+  done
+fi
+
 stow --dotfiles -d src -t ~ $(ls src/)
+echo "  Stow complete."
 
 echo ""
 echo "✓ Done. Open tmux and press prefix+I to install plugins."
