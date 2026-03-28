@@ -64,9 +64,7 @@ sudo pacman -S --noconfirm --needed \
   ffmpegthumbnailer \
   imagemagick \
   poppler
-
-# unar is AUR-only on Arch
-yay -S --noconfirm --needed unar
+# Optional: yay -S unar  (only needed for RAR files or non-UTF-8 encoded archives)
 
 # ── Lazy* TUI tools ───────────────────────────────────────────────────────
 echo "==> Installing lazygit & lazydocker..."
