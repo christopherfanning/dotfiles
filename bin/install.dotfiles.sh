@@ -11,8 +11,9 @@ mkdir -p ~/.local/share/JetBrains/Toolbox/apps
 mkdir -p ~/.local/share/JetBrains/Toolbox/scripts
 
 # ── Antidote (zsh plugin manager) ────────────────────────────────────────
-if [ ! -d "${ZDOTDIR:-~}/.antidote" ]; then
-  echo "==> Installing Antidote..."
+# Skip git clone if installed via yay -S zsh-antidote (system package)
+if [[ ! -f /usr/share/zsh-antidote/antidote.zsh && ! -d "${ZDOTDIR:-~}/.antidote" ]]; then
+  echo "==> Installing Antidote (git clone)..."
   git clone --depth=1 https://github.com/mattmc3/antidote.git "${ZDOTDIR:-~}/.antidote"
 fi
 
