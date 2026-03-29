@@ -11,6 +11,7 @@
 
 # ── tmux plugins (managed by TPM at runtime) ─────────────────────────────
 /src/tmux/plugins/
+src/tmux/dot-config/tmux/plugins/
 
 # ── fonts: installed via pacman (ttf-meslo-nerd), binaries don't belong here
 src/fonts/fonts/*.ttf
