@@ -2,6 +2,8 @@
 
 > Documentation for the `~/dotfiles` repo — why each tool was chosen, how it's configured, and known issues.
 
+> 📋 **[[Keybinds]]** — full cross-tool keybind reference (tmux · Neovim · zsh · Hyprland · Yazi · Lazygit · atuin)
+
 ## Core Tools
 
 | Tool | Purpose |

@@ -27,3 +27,8 @@ source /usr/share/fzf/completion.zsh
 ## fzf-tab
 
 The `Aloxaf/fzf-tab` zsh plugin replaces the default tab-completion menu with an fzf picker — every `<Tab>` becomes a fuzzy search.
+
+## zsh-fzf-history-search
+
+`joshskidmore/zsh-fzf-history-search` binds `Ctrl+R` to a lightweight inline fzf history picker. When **atuin** is installed it takes over `Ctrl+R` (atuin init runs last in `.zshrc`), so this plugin acts as a quality fallback on machines without atuin.
+
