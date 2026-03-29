@@ -105,3 +105,20 @@ Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
 ## Documentation
 
 `obsidian/dotfiles-vault/` is an Obsidian vault with docs for every tool. `Home.md` is the index. When adding a new tool, create a matching doc in `obsidian/dotfiles-vault/Tools/` and add it to `Home.md`.
+Known-issue fixes live in `obsidian/dotfiles-vault/Fixes/`.
+
+---
+
+## Known fixes
+
+### KDE overriding external monitor brightness
+
+**`src/kde/dot-config/powerdevilrc`** — stowed to `~/.config/powerdevilrc`
+
+KDE's powerdevil uses DDC/CI to send brightness commands to connected monitors via HDMI/DP, overriding OSD settings. Fix: set `DimDisplay=false` and `UseProfileSpecificDisplayBrightness=false` in every `[*][Display]` section of `powerdevilrc`. After stowing, run:
+
+```bash
+systemctl --user restart plasma-powerdevil
+```
+
+Full details: `obsidian/dotfiles-vault/Fixes/KDE-Monitor-Brightness.md`

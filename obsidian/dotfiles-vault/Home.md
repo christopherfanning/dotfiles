@@ -66,6 +66,10 @@
 
 - [[Issues/Ghostty-Remote-TERM]] ⚠️ htop on remote servers
 
+## Fixes
+
+- [[Fixes/KDE-Monitor-Brightness]] — KDE/powerdevil overriding external monitor brightness via DDC/CI
+
 ## Theme
 
 Everything uses **Catppuccin Mocha** — Ghostty, tmux, Neovim, Yazi, Hyprland, waybar, wofi, hyprlock.
