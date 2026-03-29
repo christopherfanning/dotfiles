@@ -21,6 +21,8 @@ antidote load
 # ──────────────────────────────────────────────
 # History
 # ──────────────────────────────────────────────
+mkdir -p "$HOME/.local/share/zsh"
+HISTFILE="$HOME/.local/share/zsh/history"   # XDG-compliant, explicit — never lose track of it
 HISTSIZE=100000
 SAVEHIST=100000
 setopt EXTENDED_HISTORY          # save timestamp + duration with each entry

@@ -62,6 +62,19 @@ fi
 stow --dotfiles -d src -t ~ $(ls src/)
 echo "  Stow complete."
 
+# ── Atuin history bootstrap ───────────────────────────────────────────────
+# Import existing shell history into atuin on first install.
+# Safe to run multiple times — atuin deduplicates on import.
+if command -v atuin &>/dev/null; then
+  echo "==> Importing shell history into atuin..."
+  mkdir -p "$HOME/.local/share/zsh"
+  # Import zsh history (uses HISTFILE env or detects ~/.local/share/zsh/history)
+  HISTFILE="$HOME/.local/share/zsh/history" atuin import zsh 2>/dev/null || true
+  # Also pull in bash history if present
+  [[ -f "$HOME/.bash_history" ]] && atuin import bash 2>/dev/null || true
+  echo "  History imported. Ctrl+R in a new shell to search via atuin."
+fi
+
 echo ""
 echo "✓ Done. Open tmux and press prefix+I to install plugins."
 echo "  Open nvim — lazy.nvim will auto-install on first launch."
