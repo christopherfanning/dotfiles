@@ -1,5 +1,8 @@
 .idea/
 
+# ── Stow artifacts — literal tilde dir created if script run from wrong dir ──
+~/
+
 # ── Editor runtime files ──────────────────────────────────────────────────
 *.log
 *.swp
