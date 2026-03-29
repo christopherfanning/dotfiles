@@ -1,0 +1,61 @@
+# Atuin config — shell history in SQLite, searchable with fzf-style TUI
+# No history limit. Stores everything forever. DB grows ~450 bytes/entry.
+# Full option reference: https://docs.atuin.sh/configuration/config/
+
+## Search mode: fuzzy is the best for "I half-remember this command"
+search_mode = "fuzzy"
+search_mode_shell_up_key_binding = "fuzzy"
+
+## Filter mode: global across all machines/sessions by default
+filter_mode = "global"
+filter_mode_shell_up_key_binding = "global"
+
+## Show command preview (very useful for long pipelines)
+show_preview = true
+max_preview_height = 4
+
+## Press Enter to execute immediately; Tab to edit first
+enter_accept = true
+
+## Full-height TUI (0 = always fullscreen)
+inline_height = 0
+
+## Vi-style keybinds in the search TUI
+keymap_mode = "auto"
+
+## Invert puts the search bar at the top (more natural when full-height)
+invert = true
+
+## Secrets filter: don't save AWS keys, GitHub PATs, Slack tokens, etc.
+secrets_filter = true
+
+## Auto-sync if you register at atuin.sh (off by default, no account needed locally)
+auto_sync = false
+update_check = true
+
+[stats]
+## Track subcommands for these tools so stats show "git commit" not just "git"
+common_subcommands = [
+  "cargo", "docker", "git", "go", "kubectl", "npm", "pnpm",
+  "systemctl", "tmux", "yay", "pacman",
+]
+ignored_commands = ["ls", "ll", "la", "cd", "exit", "clear"]
+
+[sync]
+records = true
+
+[tmux]
+## Pop up atuin inside tmux instead of inline (requires tmux >= 3.2)
+enabled = true
+width = "90%"
+height = "70%"
+
+[ui]
+## Show exit code (colored), duration, time, directory, then command
+columns = [
+  "exit",
+  "duration",
+  { type = "time", width = 10 },
+  { type = "directory", width = 25 },
+  "command",
+]
