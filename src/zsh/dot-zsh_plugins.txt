@@ -5,20 +5,20 @@ zsh-users/zsh-completions
 Aloxaf/fzf-tab kind:defer
 
 # ── Oh My Zsh plugins ─────────────────────────
-romkatv/zsh-bench kind:path
-olets/zsh-abbr    kind:defer
-
-ohmyzsh/ohmyzsh path:lib
-ohmyzsh/ohmyzsh path:plugins/colored-man-pages
-ohmyzsh/ohmyzsh path:plugins/magic-enter
-ohmyzsh/ohmyzsh path:plugins/git
+# romkatv/zsh-bench kind:path
+# olets/zsh-abbr    kind:defer
+# 
+# ohmyzsh/ohmyzsh path:lib
+# ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+# ohmyzsh/ohmyzsh path:plugins/magic-enter
+# ohmyzsh/ohmyzsh path:plugins/git
 
 # ── zsh-utils ─────────────────────────────────
-belak/zsh-utils path:editor
-belak/zsh-utils path:history
-belak/zsh-utils path:prompt
-belak/zsh-utils path:utility
-belak/zsh-utils path:completion
+# belak/zsh-utils path:editor
+# belak/zsh-utils path:history
+# belak/zsh-utils path:prompt
+# belak/zsh-utils path:utility
+# belak/zsh-utils path:completion
 
 # ── Prompts ───────────────────────────────────
 sindresorhus/pure     kind:fpath
@@ -30,6 +30,9 @@ zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting kind:defer
 zsh-users/zsh-history-substring-search
 
+# ── fzf history search (Ctrl+R — overridden by atuin when installed) ──
+joshskidmore/zsh-fzf-history-search
+
 # ── Vi mode ───────────────────────────────────
 jeffreytse/zsh-vi-mode
 
@@ -37,5 +40,5 @@ jeffreytse/zsh-vi-mode
 romkatv/powerlevel10k
 
 # ── Kubernetes prompt ─────────────────────────
-jonmosco/kube-ps1
+# jonmosco/kube-ps1
 
