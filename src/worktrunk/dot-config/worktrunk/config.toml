@@ -1,0 +1,38 @@
+# Worktrunk user config — ~/.config/worktrunk/config.toml
+# Docs: https://worktrunk.dev/config/
+#
+# Project-level config lives in <repo>/.config/wt.toml — not here.
+# This file configures user-wide defaults and user hooks that apply
+# to every repo.
+
+# ── Worktree path template ────────────────────────────────────────────────
+# Worktrees are placed sibling to the repo directory by default.
+# {{ repo }} = repo dir name, {{ branch | slugify }} = url-safe branch name
+# worktree_path = "../{{ repo }}.{{ branch | slugify }}"
+
+# ── Default base branch ───────────────────────────────────────────────────
+# base = "main"
+
+# ── Shell integration ─────────────────────────────────────────────────────
+# Run `wt config shell install` after installing worktrunk.
+# This adds a `wt()` wrapper function to your shell that lets `wt switch`
+# actually change the current directory (plain binaries can't do this).
+
+# ── User-level hooks (apply to all repos) ────────────────────────────────
+# Post-start: copy node_modules and cargo target dir from the base worktree
+# to avoid cold dependency installs on every new worktree.
+# [post-start]
+# copy-node = "[ -d '{{ base_worktree_path }}/node_modules' ] && cp -r '{{ base_worktree_path }}/node_modules' '{{ worktree_path }}/node_modules' || true"
+# copy-cargo = "[ -d '{{ base_worktree_path }}/target' ] && cp -r '{{ base_worktree_path }}/target' '{{ worktree_path }}/target' || true"
+
+# Pre-merge: run tests before merging to base branch
+# [pre-merge]
+# test = "cargo test"              # Rust
+# test = "npm test"                # Node
+# test = "pytest"                  # Python
+
+# ── LLM commit messages ───────────────────────────────────────────────────
+# worktrunk can generate commit messages from diffs using an LLM.
+# Set ANTHROPIC_API_KEY or OPENAI_API_KEY in your environment.
+# [commit]
+# llm = true

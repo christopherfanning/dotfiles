@@ -45,6 +45,7 @@
 | [[Tools/JS-Dev]] | pnpm, bun, mise, LazyVim TS |
 | [[Tools/GitHub-CLI]] | gh — PRs, issues, CI from the terminal |
 | [[Tools/just]] | Task runner (modern Makefile replacement) |
+| [[Tools/Worktrunk]] | Git worktree manager — parallel AI agents |
 | [[Tools/lazysql]] | Terminal SQL TUI (MySQL/MariaDB/Postgres) |
 | [[Tools/mise]] | Polyglot version manager (replaces nvm/sdkman) |
 

@@ -82,7 +82,14 @@ sudo pacman -S --noconfirm --needed \
 echo "==> Installing git tools..."
 sudo pacman -S --noconfirm --needed \
   lazygit \
-  github-cli
+  github-cli \
+  worktrunk
+
+# Shell integration for worktrunk (writes to ~/.config/worktrunk/config.toml)
+# Adds `wt()` shell function that allows `wt switch` to change directories
+if command -v wt &>/dev/null; then
+  wt config shell install
+fi
 
 # ── Hyprland (Wayland compositor) ────────────────────────────────────────
 echo "==> Installing Hyprland + Wayland ecosystem..."

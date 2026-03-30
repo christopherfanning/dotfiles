@@ -246,3 +246,22 @@
 | `Ctrl+D` | Delete entry |
 | `Ctrl+R` (in TUI) | Cycle filter mode (global → host → session) |
 | `Esc` | Exit / return original |
+
+---
+
+## Worktrunk — git worktrees (`wt`)
+
+| Command | Action |
+|---------|--------|
+| `wt switch feat` | Switch to worktree for branch `feat` |
+| `wt switch` | Interactive picker (fzf — live diff/log preview) |
+| `wt switch -c feat` | Create branch + worktree, switch |
+| `wt switch -c -x claude feat` | Create worktree, launch claude in it |
+| `wt switch pr:123` | Check out PR #123 in its own worktree |
+| `wt list` | Dashboard: all worktrees + status |
+| `wt list --full` | Add CI status + AI summaries |
+| `wt merge main` | Squash → rebase → merge → clean up |
+| `wt remove` | Remove current worktree + branch |
+| `wt step commit` | Stage all, generate LLM commit msg, commit |
+| `wt hook <type>` | Run a hook manually |
+
