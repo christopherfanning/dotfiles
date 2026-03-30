@@ -31,9 +31,6 @@ src/hyprland/dot-config/hypr/hyprpm/
 # ── kitty: session state written on exit ─────────────────────────────────
 src/kitty/dot-config/kitty/last-session.conf
 
-# ── obsidian: workspace state is machine-specific ────────────────────────
-obsidian/**/.obsidian/workspace.json
-obsidian/**/.obsidian/workspace-mobile.json
-obsidian/**/.trash/
-
+# ── zsh: generated completion files (auto-refreshed from tool binaries) ──
+src/zsh/dot-config/zsh/completions/_*
 

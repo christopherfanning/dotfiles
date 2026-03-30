@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "2b0cbd7785c0d098",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb4bb8ebc7fae6c6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2774ed44b7a2b360",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dotfiles-vault/Fixes/KDE-Monitor-Brightness.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "KDE-Monitor-Brightness"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ebc501ef8d09e7ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "9736c6c3a802f14c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "963890b622aab345",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "ff0319fa727f1e39",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "brigh",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "bd3b6657e6fd5b0c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e1fa058dfd8a283f",
+    "type": "split",
+    "children": [
+      {
+        "id": "e3b24f145186771f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "adc58a230d8447c8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "dotfiles-vault/Setup/Stow Structure.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Stow Structure"
+            }
+          },
+          {
+            "id": "d11a4c96939de265",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "dotfiles-vault/Setup/Stow Structure.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Stow Structure"
+            }
+          },
+          {
+            "id": "a1966a04f2fb43dc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fe10347499c8f3d2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e34b769de3ac062b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "dotfiles-vault/Setup/Stow Structure.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Stow Structure"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "2774ed44b7a2b360",
+  "lastOpenFiles": [
+    "dotfiles-vault/Tools/Worktrunk.md",
+    "dotfiles-vault/Keybinds.md",
+    "dotfiles-vault/Setup/Stow Structure.md",
+    "dotfiles-vault/Fixes/KDE-Monitor-Brightness.md",
+    "dotfiles-vault/Fixes",
+    "dotfiles-vault/Tools/MCP-Servers.md",
+    "dotfiles-vault/Tools/Hyprland.md",
+    "dotfiles-vault/Tools/JS-Dev.md",
+    "dotfiles-vault/Tools/WordPress-Dev.md",
+    "dotfiles-vault/Tools/AWS-Workflow.md",
+    "dotfiles-vault/Tools/Multipass.md",
+    "dotfiles-vault/Tools/KVM-QEMU.md",
+    "dotfiles-vault/Tools/atuin.md",
+    "dotfiles-vault/Tools/act.md",
+    "dotfiles-vault/Tools/mise.md",
+    "dotfiles-vault/Tools/cava.md",
+    "dotfiles-vault/Tools/lazysql.md",
+    "dotfiles-vault/Tools/ctop.md",
+    "dotfiles-vault/Tools/navi.md",
+    "dotfiles-vault/Tools/xh.md",
+    "dotfiles-vault/Tools/Copilot-Neovim.md",
+    "dotfiles-vault/Tools/just.md",
+    "dotfiles-vault/Tools/Docker.md",
+    "dotfiles-vault/Tools/GitHub-CLI.md",
+    "dotfiles-vault/Tools/Tealdeer.md",
+    "dotfiles-vault/Setup/Getting Started.md",
+    "dotfiles-vault/Home.md"
+  ]
+}

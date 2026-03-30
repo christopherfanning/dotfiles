@@ -36,10 +36,41 @@ setopt HIST_VERIFY               # show expanded history before executing
 # ──────────────────────────────────────────────
 # Completion
 # ──────────────────────────────────────────────
+# Custom completions dir — must be in fpath BEFORE compinit
+mkdir -p "$HOME/.config/zsh/completions" "$HOME/.cache/zsh"
+fpath=("$HOME/.config/zsh/completions" $fpath)
+
+# Lazy completion generator — only regenerates when binary is newer than cached file.
+# Usage: _zsh_gen_completion <cmd> <output-file> <generation-command...>
+_zsh_gen_completion() {
+  local cmd="$1" outfile="$2"; shift 2
+  command -v "$cmd" &>/dev/null || return
+  [[ ! -f "$outfile" || "$(command -v "$cmd")" -nt "$outfile" ]] && "$@" > "$outfile" 2>/dev/null
+}
+
+# Generate/refresh completions for tools that ship their own generators
+_zsh_gen_completion gh      "$HOME/.config/zsh/completions/_gh"      gh completion -s zsh
+_zsh_gen_completion pnpm    "$HOME/.config/zsh/completions/_pnpm"    pnpm completion zsh
+_zsh_gen_completion mise    "$HOME/.config/zsh/completions/_mise"    mise completion zsh
+_zsh_gen_completion kubectl "$HOME/.config/zsh/completions/_kubectl" kubectl completion zsh
+_zsh_gen_completion rustup  "$HOME/.config/zsh/completions/_rustup"  rustup completions zsh
+_zsh_gen_completion rustup  "$HOME/.config/zsh/completions/_cargo"   rustup completions zsh cargo
+_zsh_gen_completion wt      "$HOME/.config/zsh/completions/_wt"      wt completion zsh
+_zsh_gen_completion uv      "$HOME/.config/zsh/completions/_uv"      uv generate-shell-completion zsh
+
 autoload -Uz compinit
-compinit
+# Regenerate zcompdump at most once per day (speeds up startup ~40ms)
+if [[ -n "$HOME/.cache/zsh/zcompdump"(#qN.mh+24) ]]; then
+  compinit -d "$HOME/.cache/zsh/zcompdump"
+else
+  compinit -C -d "$HOME/.cache/zsh/zcompdump"
+fi
+
 zstyle ':completion:*' file-list all
 zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/zcompcache"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # case-insensitive matching
 
 # ──────────────────────────────────────────────
 # Options
@@ -134,9 +165,9 @@ command -v mise &>/dev/null && eval "$(mise activate zsh)"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # ──────────────────────────────────────────────
-# Optional tool completions
+# AWS completion (uses bash compat shim)
 # ──────────────────────────────────────────────
-command -v kubectl &>/dev/null && source <(kubectl completion zsh)
+[[ -f /usr/bin/aws_zsh_completer.sh ]] && source /usr/bin/aws_zsh_completer.sh
 
 # ──────────────────────────────────────────────
 # Powerlevel10k
