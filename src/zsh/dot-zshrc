@@ -7,15 +7,22 @@ fi
 
 # ──────────────────────────────────────────────
 # Antidote plugin manager
-# Supports: yay -S zsh-antidote (system) OR git clone (manual)
+# Supports: Arch (yay), macOS (brew), or manual git clone
 # ──────────────────────────────────────────────
-if [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
-  source /usr/share/zsh-antidote/antidote.zsh        # Arch package (yay)
-elif [[ -f ${ZDOTDIR:-~}/.antidote/antidote.zsh ]]; then
-  source ${ZDOTDIR:-~}/.antidote/antidote.zsh        # manual git clone
-else
-  echo "antidote not found — run: yay -S zsh-antidote"
-fi
+_antidote_loaded=0
+for _p in \
+  /usr/share/zsh-antidote/antidote.zsh \
+  "$(brew --prefix 2>/dev/null)/opt/antidote/share/antidote/antidote.zsh" \
+  "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
+do
+  if [[ -f "$_p" ]]; then
+    source "$_p"
+    _antidote_loaded=1
+    break
+  fi
+done
+(( _antidote_loaded )) || echo "antidote not found — Arch: yay -S zsh-antidote | macOS: brew install antidote"
+unset _p _antidote_loaded
 antidote load
 
 # ──────────────────────────────────────────────
