@@ -76,6 +76,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # case-insensitive matching
 # Options
 # ──────────────────────────────────────────────
 setopt extendedglob notify
+setopt NO_NOMATCH   # unmatched globs pass through literally (bash-like behaviour)
 unsetopt beep
 WORDCHARS=${WORDCHARS//[\/]}
 
