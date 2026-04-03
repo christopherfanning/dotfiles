@@ -4,7 +4,7 @@
 
 ---
 
-## tmux — prefix: `Ctrl+a`
+## tmux — prefix: `Ctrl+Space`
 
 ### Sessions
 | Key | Action |
