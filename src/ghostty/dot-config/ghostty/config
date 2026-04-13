@@ -37,4 +37,4 @@ shell-integration = zsh
 shell-integration-features = cursor,sudo,title
 
 # ── Theme (Catppuccin Mocha) ──────────────────
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
