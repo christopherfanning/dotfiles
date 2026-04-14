@@ -23,7 +23,6 @@ alias ld='lazydocker'
 alias y='yazi'
 
 # ── Navigation ────────────────────────────────
-alias cd='z'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
