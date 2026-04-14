@@ -32,6 +32,7 @@
 |------|---------|
 | [[Tools/Copilot-Neovim]] | Inline completions + chat in Neovim |
 | [[Tools/MCP-Servers]] | Claude Code skills (filesystem, git, github, docker…) |
+| [[Tools/Local-AI]] | Ollama local inference + codecompanion.nvim + mcphub.nvim |
 
 ## Development
 

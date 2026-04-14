@@ -1,40 +1,38 @@
-# KDE Powerdevil — power management profiles
-#
-# Key: DimDisplay=false prevents KDE from dimming/adjusting connected external
-# monitor brightness on idle or profile change. Without this, KDE uses DDC/CI
-# to send brightness commands to connected monitors, overriding your manual
-# settings (very noticeable on HDMI/DP monitors where KDE resets brightness
-# every time you unlock the screen or wake from suspend).
-#
-# GUI equivalent:
-#   System Settings → Power Management → Energy Saving
-#   → uncheck "Dim screen" under each profile (AC, Battery, Low Battery)
-#
-# If you also want KDE to stop restoring a saved brightness value on login:
-#   Add UseProfileSpecificDisplayBrightness=false under each [*][Display] group.
-
 [AC][Display]
-TurnOffDisplayIdleTimeoutSec=1800
 DimDisplay=false
+TurnOffDisplayIdleTimeoutSec=-1
+TurnOffDisplayWhenIdle=false
 UseProfileSpecificDisplayBrightness=false
 
 [AC][Performance]
 PowerProfile=performance
 
 [AC][SuspendAndShutdown]
+AutoSuspendAction=0
 AutoSuspendIdleTimeoutSec=3600
+LidAction=0
 
 [Battery][Display]
 DimDisplay=false
+TurnOffDisplayIdleTimeoutSec=900
 UseProfileSpecificDisplayBrightness=false
 
+[Battery][Performance]
+PowerProfile=balanced
+
 [Battery][SuspendAndShutdown]
+AutoSuspendIdleTimeoutSec=900
 LidAction=2
+SleepMode=3
 
 [LowBattery][Display]
 DimDisplay=false
 UseProfileSpecificDisplayBrightness=false
 
+[LowBattery][Performance]
+PowerProfile=power-saver
+
 [LowBattery][SuspendAndShutdown]
 AutoSuspendAction=2
-AutoSuspendIdleTimeoutSec=1800
+InhibitLidActionWhenExternalMonitorPresent=false
+LidAction=2

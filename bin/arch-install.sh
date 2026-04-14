@@ -151,6 +151,14 @@ yay -S --noconfirm --needed \
 echo "==> Installing WordPress tooling..."
 yay -S --noconfirm --needed wp-cli
 
+# ── Local AI (Ollama) ─────────────────────────────────────────────────────
+echo "==> Installing Ollama..."
+# For CPU inference (stable). For AMD GPU acceleration, use: yay -S ollama-rocm
+# The ollama service runs on localhost:11434
+yay -S --noconfirm --needed ollama
+sudo systemctl enable --now ollama
+echo "  Run bin/setup-local-ai.sh to pull models."
+
 # ── Lazy* TUI tools + AUR extras ─────────────────────────────────────────
 echo "==> Installing TUI tools and AUR extras..."
 yay -S --noconfirm --needed \
