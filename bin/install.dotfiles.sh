@@ -45,19 +45,40 @@ git config --global color.ui auto
 
 # ── Stow all packages ─────────────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
-# Dry run first to detect conflicts
-CONFLICTS=$(stow -nv --dotfiles -d src -t ~ $(ls src/) 2>&1 | grep "cannot stow" | grep -oP '(?<=target )\S+')
 
-if [[ -n "$CONFLICTS" ]]; then
-  echo "  Backing up conflicting files..."
-  for f in $CONFLICTS; do
-    target="$HOME/$f"
-    if [[ -f "$target" && ! -L "$target" ]]; then
+# Back up real files AND directories that stow would conflict with or fold into.
+# Stow folds into existing real directories (creating file-level symlinks) rather
+# than replacing them with a directory symlink — we want the latter for clean installs.
+# A directory is "package-owned" (should be a symlink) when no other package shares
+# the same relative path. Shared dirs like dot-config/ are skipped.
+echo "  Checking for conflicts..."
+for pkg in $(ls src/); do
+  while IFS= read -r srcpath; do
+    relpath="${srcpath#src/$pkg/}"
+    # Convert dot- prefix at each path component boundary (stow --dotfiles convention)
+    target_rel=$(echo "$relpath" | sed 's|/dot-|/.|g; s|^dot-|.|')
+    target="$HOME/$target_rel"
+
+    [[ -L "$target" ]] && continue  # already a symlink, stow owns it
+
+    if [[ -f "$target" ]]; then
       echo "    $target → ${target}.bak"
       mv "$target" "${target}.bak"
+    elif [[ -d "$target" ]]; then
+      # Only back up if this package solely owns this directory
+      # (shared dirs like ~/.config/ are used by many packages — stow folds into them intentionally)
+      is_shared=false
+      for other in $(ls src/); do
+        [[ "$other" == "$pkg" ]] && continue
+        [[ -d "src/$other/$relpath" ]] && is_shared=true && break
+      done
+      if [[ "$is_shared" == "false" ]]; then
+        echo "    $target/ → ${target}.bak/"
+        mv "$target" "${target}.bak"
+      fi
     fi
-  done
-fi
+  done < <(find "src/$pkg" -mindepth 1)
+done
 
 stow --dotfiles -d src -t ~ $(ls src/)
 echo "  Stow complete."
