@@ -31,30 +31,30 @@ Fn+brightness keys and the KDE brightness slider continue to work normally on th
 
 ## The Fix — `POWERDEVIL_NO_DDCUTIL=1` (preferred)
 
-A **systemd user service drop-in** tells powerdevil to skip DDC/CI entirely.
+A **systemd user service drop-in** tells powerdevil to skip DDC/CI entirely, combined with `powerdevilrc` settings to disable dim and profile-specific brightness.
 
-Managed by stow: `src/kde/dot-config/systemd/user/plasma-powerdevil.service.d/no-ddcutil.conf`
-
-```ini
-[Service]
-Environment=POWERDEVIL_NO_DDCUTIL=1
-```
-
-To apply:
+Apply with the included script:
 
 ```bash
-stow --dotfiles -d src -t ~ kde
-systemctl --user daemon-reload
-systemctl --user restart plasma-powerdevil.service
+bash bin/fix-kde-brightness.sh
+```
 
-# Verify:
+This writes:
+- `~/.config/systemd/user/plasma-powerdevil.service.d/no-ddcutil.conf`
+- `~/.config/powerdevilrc` (via `kwriteconfig5` if available, otherwise full write)
+
+Then reloads and restarts powerdevil automatically.
+
+To verify:
+
+```bash
 systemctl --user show plasma-powerdevil.service --property=Environment
 # → Environment=POWERDEVIL_NO_DDCUTIL=1
 ```
 
 ## Belt-and-suspenders — `powerdevilrc` config
 
-`src/kde/dot-config/powerdevilrc` also sets `DimDisplay=false` and `UseProfileSpecificDisplayBrightness=false` across all power profiles. Both are stowed together under the `kde` package.
+The script also sets `DimDisplay=false` and `UseProfileSpecificDisplayBrightness=false` across all power profiles (AC, Battery, LowBattery).
 
 ## Why this happens
 

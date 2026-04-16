@@ -113,12 +113,10 @@ Known-issue fixes live in `obsidian/dotfiles-vault/Fixes/`.
 
 ### KDE overriding external monitor brightness
 
-**`src/kde/dot-config/powerdevilrc`** — stowed to `~/.config/powerdevilrc`
-
-KDE's powerdevil uses DDC/CI to send brightness commands to connected monitors via HDMI/DP, overriding OSD settings. Fix: set `DimDisplay=false` and `UseProfileSpecificDisplayBrightness=false` in every `[*][Display]` section of `powerdevilrc`. After stowing, run:
+KDE's powerdevil uses DDC/CI to send brightness commands to connected monitors via HDMI/DP, overriding OSD settings. Fix is applied via a script (not stowed):
 
 ```bash
-systemctl --user restart plasma-powerdevil
+bash bin/fix-kde-brightness.sh
 ```
 
 Full details: `obsidian/dotfiles-vault/Fixes/KDE-Monitor-Brightness.md`

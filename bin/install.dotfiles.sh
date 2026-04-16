@@ -46,37 +46,52 @@ git config --global color.ui auto
 # ── Stow all packages ─────────────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
 
-# Back up real files AND directories that stow would conflict with or fold into.
-# Stow folds into existing real directories (creating file-level symlinks) rather
-# than replacing them with a directory symlink — we want the latter for clean installs.
-# A directory is "package-owned" (should be a symlink) when no other package shares
-# the same relative path. Shared dirs like dot-config/ are skipped.
+# Before stowing, back up any real (non-symlink) files that would conflict.
+#
+# SAFETY RULES — what we NEVER touch:
+#   1. Symlinks — stow already owns them; touching them would break the config.
+#   2. Anything whose real path resolves inside DOTFILES_DIR — these are already
+#      stow-managed paths (e.g. ~/.config/nvim -> dotfiles/src/nvim/dot-config/nvim).
+#      Renaming a file inside that dir would destroy the repo source.
+#
+# We only back up REAL files/dirs that are NOT already under stow management
+# and that stow would refuse to overwrite.
+
+_is_under_dotfiles() {
+  # Returns 0 (true) if the resolved real path of $1 is inside DOTFILES_DIR.
+  local target="$1"
+  local real
+  real=$(realpath "$target" 2>/dev/null) || return 1
+  [[ "$real" == "$DOTFILES_DIR"* ]]
+}
+
 echo "  Checking for conflicts..."
 for pkg in $(ls src/); do
   while IFS= read -r srcpath; do
+    # Only look at leaf files — stow handles directory creation itself
+    [[ -f "$srcpath" ]] || continue
+
     relpath="${srcpath#src/$pkg/}"
-    # Convert dot- prefix at each path component boundary (stow --dotfiles convention)
+    # Convert dot- prefix convention to real dotfile names
     target_rel=$(echo "$relpath" | sed 's|/dot-|/.|g; s|^dot-|.|')
     target="$HOME/$target_rel"
 
-    [[ -L "$target" ]] && continue  # already a symlink, stow owns it
+    # Skip if target doesn't exist — nothing to back up
+    [[ -e "$target" || -L "$target" ]] || continue
 
-    if [[ -f "$target" ]]; then
-      echo "    $target → ${target}.bak"
-      mv "$target" "${target}.bak"
-    elif [[ -d "$target" ]]; then
-      # Only back up if this package solely owns this directory
-      # (shared dirs like ~/.config/ are used by many packages — stow folds into them intentionally)
-      is_shared=false
-      for other in $(ls src/); do
-        [[ "$other" == "$pkg" ]] && continue
-        [[ -d "src/$other/$relpath" ]] && is_shared=true && break
-      done
-      if [[ "$is_shared" == "false" ]]; then
-        echo "    $target/ → ${target}.bak/"
-        mv "$target" "${target}.bak"
-      fi
+    # Skip if already a symlink — stow owns it, leave it alone
+    [[ -L "$target" ]] && continue
+
+    # Skip if it resolves into the dotfiles repo — we'd be clobbering our own source
+    if _is_under_dotfiles "$target"; then
+      echo "  SKIP (already stow-managed via parent symlink): $target"
+      continue
     fi
+
+    # Safe to back up — it's a real file/dir that stow doesn't own yet
+    echo "  Backing up: $target → ${target}.bak"
+    mv "$target" "${target}.bak"
+
   done < <(find "src/$pkg" -mindepth 1)
 done
 
