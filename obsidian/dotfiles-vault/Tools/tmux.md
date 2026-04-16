@@ -55,3 +55,10 @@ then TPM runs all plugins again at the bottom (idempotent).
 ## Install plugins
 
 After first stow, open tmux and press `prefix + I` to install all TPM plugins.
+
+## Sub-pages
+
+- [[Tools/tmux/Config]] — all `tmux.conf` options explained
+- [[Tools/tmux/Plugins]] — each TPM plugin documented
+- [[Tools/tmux/Status-Bar]] — catppuccin v2 status bar
+- [[Tools/tmux-vs-zellij]] — when to use tmux vs Zellij

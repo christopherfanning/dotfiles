@@ -115,3 +115,9 @@ zellij delete-session my-session
 - `copy_on_select true` in config means highlighted text auto-copies to clipboard — no extra keypress needed
 - Pane frames are disabled (`pane_frames false`) for a cleaner look; the compact bar at the bottom shows the mode
 - `scroll_buffer_size 50000` keeps plenty of history for log tailing
+
+## Sub-pages
+
+- [[Tools/Zellij/Config]] — `config.kdl` options
+- [[Tools/Zellij/Keybinds]] — full keybind reference
+- [[Tools/tmux-vs-zellij]] — comparison guide

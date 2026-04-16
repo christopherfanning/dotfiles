@@ -33,3 +33,9 @@ Default vim navigation (`hjkl`, `gg`, `G`, `v`, `y`, `p`, `d`) all work as expec
 ## Theme
 
 Catppuccin Mocha via `theme.toml`.
+
+## Sub-pages
+
+- [[Tools/Yazi/Config]] — `yazi.toml` options
+- [[Tools/Yazi/Keymap]] — custom keybinds
+- [[Tools/Yazi/Image-Preview]] — image preview in tmux

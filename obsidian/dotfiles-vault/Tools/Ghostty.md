@@ -25,3 +25,7 @@ shell-integration = zsh
 ## Known Issues
 
 - [[Issues/Ghostty-Remote-TERM]] — `htop` / `ncurses` programs fail on remote SSH sessions
+
+## Config reference
+
+- [[Tools/Ghostty/Config]] — all options explained
