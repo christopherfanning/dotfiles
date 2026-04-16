@@ -10,6 +10,7 @@
 |------|---------|
 | [[Tools/Ghostty]] | Terminal emulator |
 | [[Tools/tmux]] | Terminal multiplexer |
+| [[Tools/Zellij]] | Terminal workspace (multiplexer alternative) |
 | [[Tools/Neovim-LazyVim]] | Editor (LazyVim + Catppuccin) |
 | [[Tools/Yazi]] | File manager |
 | [[Tools/Lazygit]] | Git TUI |

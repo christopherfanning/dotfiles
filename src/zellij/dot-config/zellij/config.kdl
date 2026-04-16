@@ -1,0 +1,70 @@
+// ── Theme ──────────────────────────────────────────────────────────────────
+// Catppuccin Mocha is built into Zellij — no extra files needed.
+theme "catppuccin-mocha"
+
+// ── Behaviour ──────────────────────────────────────────────────────────────
+default_shell "zsh"
+mouse_mode true
+copy_on_select true
+scroll_buffer_size 50000
+
+// ── UI ─────────────────────────────────────────────────────────────────────
+pane_frames false          // cleaner look without pane border titles
+simplified_ui false
+default_layout "compact"   // compact status bar (single line)
+
+// ── Keybinds ───────────────────────────────────────────────────────────────
+// Zellij uses a modal system: Normal → Pane / Tab / Resize / Move / Scroll
+// The default leader is Ctrl-p (pane), Ctrl-t (tab), etc.
+// Here we add vim-style overrides within each mode.
+keybinds clear-defaults=false {
+    // ── Normal mode ────────────────────────────────────────────────────────
+    normal {
+        // Open pane mode
+        bind "Ctrl p" { SwitchToMode "Pane"; }
+        // Quick splits (mirrors tmux | and -)
+        bind "Ctrl \\" { NewPane "Right"; }
+        bind "Ctrl -" { NewPane "Down"; }
+    }
+
+    // ── Pane mode ──────────────────────────────────────────────────────────
+    pane {
+        // vim-style focus movement
+        bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
+        // split shorthands
+        bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "-" { NewPane "Down"; SwitchToMode "Normal"; }
+        // close pane
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        // fullscreen toggle
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        // float/embed pane
+        bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+    }
+
+    // ── Resize mode ────────────────────────────────────────────────────────
+    resize {
+        bind "h" { Resize "Left"; }
+        bind "j" { Resize "Down"; }
+        bind "k" { Resize "Up"; }
+        bind "l" { Resize "Right"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+    }
+
+    // ── Scroll / copy mode ─────────────────────────────────────────────────
+    scroll {
+        bind "j" { ScrollDown; }
+        bind "k" { ScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "/" { Search "down"; }
+        bind "?" { Search "up"; }
+        bind "n" { SearchToggleOption "CaseSensitivity"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "q" { SwitchToMode "Normal"; }
+    }
+}
