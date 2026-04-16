@@ -20,7 +20,7 @@ fi
 
 # ── Shell & multiplexer ───────────────────────────────────────────────────
 echo "==> Installing shell & multiplexer..."
-sudo pacman -S --noconfirm --needed zsh stow tmux
+sudo pacman -S --noconfirm --needed zsh stow tmux zellij
 
 # ── Terminal emulator ─────────────────────────────────────────────────────
 echo "==> Installing Ghostty..."

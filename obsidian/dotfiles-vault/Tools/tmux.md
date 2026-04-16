@@ -17,7 +17,7 @@ Config lives at `~/.config/tmux/tmux.conf` (managed by stow from `src/tmux/`).
 
 | Key | Action |
 |-----|--------|
-| `Ctrl-a` | Prefix (replaces default `Ctrl-b`) |
+| `Ctrl-b` | Prefix |
 | `prefix \|` | Split vertical |
 | `prefix -` | Split horizontal |
 | `prefix h/j/k/l` | Navigate panes (vim-style) |
@@ -25,18 +25,32 @@ Config lives at `~/.config/tmux/tmux.conf` (managed by stow from `src/tmux/`).
 | `prefix Ctrl-s` | Save session (tmux-resurrect) |
 | `prefix Ctrl-r` | Restore session (tmux-resurrect) |
 | `prefix o` | Session manager via fzf (tmux-sessionx) |
+| `prefix g` | Lazygit popup (full-screen) |
+| `prefix u` | Pick URL from pane output (tmux-fzf-url) |
 
 ## Plugins (TPM)
 
 | Plugin | Purpose |
 |--------|---------|
 | `tmux-sensible` | Sane defaults |
-| `catppuccin/tmux` | Catppuccin Mocha theme |
+| `catppuccin/tmux#v2.3.0` | Catppuccin Mocha theme (v2, rounded windows) |
+| `tmux-cpu` | CPU/RAM status bar modules |
+| `tmux-battery` | Battery status bar module |
 | `tmux-yank` | Copy to system clipboard |
 | `tmux-resurrect` | Save & restore sessions across reboots |
 | `tmux-continuum` | Auto-save every 10 min |
 | `vim-tmux-navigator` | Seamless navigation between vim splits and tmux panes |
 | `tmux-sessionx` | fzf-powered session manager |
+| `tmux-fzf-url` | Open URLs from pane output with fzf |
+
+## Status bar
+
+Status bar sits at the **top**. Left shows session name; right shows:
+`application → CPU → battery → date/time`
+
+Powered by catppuccin v2 module system — modules use `#{E:@catppuccin_status_<name>}` format.
+The catppuccin plugin is loaded mid-config (before status-right) so its color variables are available,
+then TPM runs all plugins again at the bottom (idempotent).
 
 ## Install plugins
 

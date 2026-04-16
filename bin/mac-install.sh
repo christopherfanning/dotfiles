@@ -32,7 +32,7 @@ brew install git curl wget stow
 
 # ── Shell & multiplexer ───────────────────────────────────────────────────
 echo "==> Installing shell & multiplexer..."
-brew install zsh tmux
+brew install zsh tmux zellij
 
 # ── Terminal emulator ─────────────────────────────────────────────────────
 echo "==> Installing Ghostty..."
