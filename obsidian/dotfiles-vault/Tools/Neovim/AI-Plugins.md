@@ -43,3 +43,13 @@ bin/setup-local-ai.sh
 | `codecompanion` (custom) | Chat, inline, agentic with MCP tools |
 
 All three can be used simultaneously — they don't conflict.
+
+## First-time auth (fresh install)
+
+After Neovim opens for the first time, run:
+
+```
+:Copilot auth
+```
+
+This authenticates the `copilot.lua` plugin. Without it, both avante and copilot completions will error on startup. Only needs to be done once per machine.
