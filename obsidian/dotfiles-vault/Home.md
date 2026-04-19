@@ -39,6 +39,7 @@
 | [[Tools/Neovim/Extras]] | Enabled LazyVim extras |
 | [[Tools/Neovim/AI-Plugins]] | CodeCompanion + MCP Hub |
 | [[Tools/Neovim/Colorscheme]] | Catppuccin integration |
+| [[Tools/Neovim/DAP]] | JS/TS debugger (breakpoints, DAP UI) |
 
 ## File Management & Navigation
 
