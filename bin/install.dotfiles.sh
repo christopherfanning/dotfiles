@@ -26,8 +26,19 @@ fi
 # ── NVM ───────────────────────────────────────────────────────────────────
 if [ ! -d "$HOME/.nvm" ]; then
   echo "==> Installing NVM..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  echo "  Run: nvm install --lts"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+fi
+
+# Source nvm so we can use it immediately (works in bash scripts)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Install LTS node if no version is set as default yet
+if ! nvm alias default &>/dev/null 2>&1 || ! nvm version default &>/dev/null 2>&1; then
+  echo "==> Installing Node.js LTS via nvm..."
+  nvm install --lts
+  nvm alias default lts/*
+  echo "  Node $(node --version) installed and set as default."
 fi
 
 # ── Reload fonts ──────────────────────────────────────────────────────────
