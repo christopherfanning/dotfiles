@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <!-- Catppuccin Mocha palette -->
+  <!-- base: #1e1e2e  mantle: #181825  crust: #11111b -->
+  <!-- text: #cdd6f4  subtext0: #a6adc8  overlay0: #6c7086 -->
+  <!-- blue: #89b4fa  mauve: #cba6f7  lavender: #b4befe -->
+  <!-- green: #a6e3a1  teal: #94e2d5  sky: #89dceb  peach: #fab387 -->
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="#1e1e2e"/>
+
+  <!-- Subtle grid pattern (surface0 at low opacity) -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#313244" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="640" fill="#cba6f7"/>
+
+  <!-- Top-left cat emoji label -->
+  <text x="48" y="80" font-family="'Segoe UI Emoji', 'Apple Color Emoji', sans-serif" font-size="36" fill="#cba6f7">🐱</text>
+
+  <!-- Main title -->
+  <text x="48" y="200" font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" font-size="72" font-weight="bold" fill="#cdd6f4">cfan dotfiles</text>
+
+  <!-- Subtitle -->
+  <text x="50" y="268" font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" font-size="26" fill="#a6adc8">A batteries-included Arch Linux developer workstation</text>
+
+  <!-- Divider line -->
+  <line x1="48" y1="304" x2="1232" y2="304" stroke="#313244" stroke-width="1.5"/>
+
+  <!-- Tool pills — row 1 -->
+  <!-- Arch Linux pill -->
+  <rect x="48" y="328" width="170" height="44" rx="8" fill="#313244"/>
+  <text x="68" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#1793D1" font-weight="bold">Arch Linux</text>
+
+  <!-- GNU Stow pill -->
+  <rect x="232" y="328" width="150" height="44" rx="8" fill="#313244"/>
+  <text x="252" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#a6adc8" font-weight="bold">GNU Stow</text>
+
+  <!-- Hyprland pill -->
+  <rect x="396" y="328" width="150" height="44" rx="8" fill="#313244"/>
+  <text x="416" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#94e2d5" font-weight="bold">Hyprland</text>
+
+  <!-- Ghostty pill -->
+  <rect x="560" y="328" width="138" height="44" rx="8" fill="#313244"/>
+  <text x="580" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#89b4fa" font-weight="bold">Ghostty</text>
+
+  <!-- tmux pill -->
+  <rect x="712" y="328" width="110" height="44" rx="8" fill="#313244"/>
+  <text x="732" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#a6e3a1" font-weight="bold">tmux</text>
+
+  <!-- Neovim pill -->
+  <rect x="836" y="328" width="128" height="44" rx="8" fill="#313244"/>
+  <text x="856" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#57A143" font-weight="bold">Neovim</text>
+
+  <!-- LazyVim pill -->
+  <rect x="978" y="328" width="128" height="44" rx="8" fill="#313244"/>
+  <text x="998" y="356" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#fab387" font-weight="bold">LazyVim</text>
+
+  <!-- Tool pills — row 2 -->
+  <!-- Zsh pill -->
+  <rect x="48" y="390" width="88" height="44" rx="8" fill="#313244"/>
+  <text x="68" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#f9e2af" font-weight="bold">Zsh</text>
+
+  <!-- Yazi pill -->
+  <rect x="150" y="390" width="100" height="44" rx="8" fill="#313244"/>
+  <text x="170" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#89dceb" font-weight="bold">Yazi</text>
+
+  <!-- atuin pill -->
+  <rect x="264" y="390" width="108" height="44" rx="8" fill="#313244"/>
+  <text x="284" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#b4befe" font-weight="bold">atuin</text>
+
+  <!-- Lazygit pill -->
+  <rect x="386" y="390" width="120" height="44" rx="8" fill="#313244"/>
+  <text x="406" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#f38ba8" font-weight="bold">Lazygit</text>
+
+  <!-- Catppuccin Mocha pill -->
+  <rect x="520" y="390" width="232" height="44" rx="8" fill="#313244"/>
+  <text x="540" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#cba6f7" font-weight="bold">Catppuccin Mocha</text>
+
+  <!-- Wayland pill -->
+  <rect x="766" y="390" width="128" height="44" rx="8" fill="#313244"/>
+  <text x="786" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#74c7ec" font-weight="bold">Wayland</text>
+
+  <!-- Ollama pill -->
+  <rect x="908" y="390" width="116" height="44" rx="8" fill="#313244"/>
+  <text x="928" y="418" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="17" fill="#f5c2e7" font-weight="bold">Ollama</text>
+
+  <!-- Terminal prompt decoration -->
+  <text x="48" y="514" font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" font-size="20" fill="#6c7086">~/dotfiles</text>
+  <text x="48" y="545" font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" font-size="20" fill="#cba6f7">❯ </text>
+  <text x="80" y="545" font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" font-size="20" fill="#a6e3a1">stow --dotfiles -d src -t ~ </text>
+  <text x="490" y="545" font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" font-size="20" fill="#89b4fa">$(ls src/)</text>
+
+  <!-- GitHub URL bottom right -->
+  <text x="1232" y="610" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="18" fill="#585b70" text-anchor="end">github.com/christopherfanning/dotfiles</text>
+</svg>
