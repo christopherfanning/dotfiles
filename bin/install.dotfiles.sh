@@ -122,9 +122,22 @@ if command -v atuin &>/dev/null; then
   echo "  History imported. Ctrl+R in a new shell to search via atuin."
 fi
 
+# ── Neovim: headless plugin install ──────────────────────────────────────
+# Run before the user ever opens nvim to avoid first-launch errors:
+#   - lazy.nvim installs all plugins (including mason, treesitter)
+#   - Lazy! update resolves any repo origin changes (e.g. mason williamboman → mason-org)
+#   - TSUpdate installs parsers and fixes query/node-type version mismatches
+if command -v nvim &>/dev/null; then
+  echo "==> Initializing Neovim plugins (headless — this may take a minute)..."
+  nvim --headless "+Lazy! sync" +qa 2>/dev/null || true
+  nvim --headless "+Lazy! update" +qa 2>/dev/null || true
+  nvim --headless "+TSUpdate" +qa 2>/dev/null || true
+  echo "  Neovim plugins installed."
+fi
+
 echo ""
 echo "✓ Done. Open tmux and press prefix+I to install plugins."
-echo "  Open nvim — lazy.nvim will auto-install on first launch."
+echo "  Neovim plugins were installed headlessly — open nvim and it should just work."
 echo ""
 echo "  Next: run bin/setup-mcp.sh to configure Claude Code MCP servers."
 echo "  (Set GITHUB_TOKEN and BRAVE_API_KEY first for full coverage)"
