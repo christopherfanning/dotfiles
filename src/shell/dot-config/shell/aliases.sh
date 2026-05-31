@@ -4,7 +4,8 @@
 # ──────────────────────────────────────────────
 
 # ── eza (modern ls) ───────────────────────────
-alias ls='eza --icons --group-directories-first'
+# alias ls='eza --icons --group-directories-first'
+alias ls='eza -lah --icons --group-directories-first --git'
 alias ll='eza -lh --icons --group-directories-first --git'
 alias la='eza -lah --icons --group-directories-first --git'
 alias lt='eza --tree --icons --group-directories-first --level=2'
@@ -49,10 +50,10 @@ alias tls='tmux ls'
 alias tn='tmux new-session -s'
 
 # ── HTTP client ───────────────────────────────
-alias http='xh'                   # xh: modern curl alternative (httpie-compatible syntax)
+alias http='xh' # xh: modern curl alternative (httpie-compatible syntax)
 
 # ── Misc ──────────────────────────────────────
-alias icat='kitten icat'          # kitty image preview
-alias idea='idea . &'             # open IntelliJ in background
-alias help='tldr'                 # tealdeer: quick command examples
-alias neofetch='fastfetch'        # neofetch is archived; fastfetch is its successor
+alias icat='kitten icat'   # kitty image preview
+alias idea='idea . &'      # open IntelliJ in background
+alias help='tldr'          # tealdeer: quick command examples
+alias neofetch='fastfetch' # neofetch is archived; fastfetch is its successor
